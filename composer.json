@@ -1,0 +1,17 @@
+{
+    "name": "phongbui/yii2-softdelete-trait",
+    "description": "Softdelete trait for Yii2",
+    "type": "yii2-trait",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "PhongBui",
+            "email": "buiphongbg@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {"phongbui\\yii2trait\\": "src"}
+    },
+    "require": {}
+}
