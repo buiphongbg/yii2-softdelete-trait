@@ -9,7 +9,6 @@
             "email": "buiphongbg@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {"phongbui\\yii2trait\\": "src"}
     },
