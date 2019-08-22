@@ -2,17 +2,18 @@
 
 namespace phongbui\yii2trait;
 
+use yii\db\Expression;
+
 trait SoftDelete
 {
-    public $deleted_at = 'deleted_at';
-
     /**
      * @return mixed
      */
     public function softDelete()
     {
-        $this->{$this->deleted_at} = date('Y-m-d H:i:s');
-        return $this->save();
+        return $this->updateAttributes([
+            $this->getDeletedAtColumn() => new Expression('NOW()')
+        ]);
     }
 
     /**
@@ -48,5 +49,15 @@ trait SoftDelete
     public static function find()
     {
         return parent::find()->andWhere('deleted_at is NULL');
+    }
+
+    /**
+     * Get the name of the "deleted at" column.
+     *
+     * @return string
+     */
+    public function getDeletedAtColumn()
+    {
+        return defined('static::DELETED_AT') ? static::DELETED_AT : 'deleted_at';
     }
 }
