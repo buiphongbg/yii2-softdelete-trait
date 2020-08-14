@@ -48,7 +48,7 @@ trait SoftDelete
 
     public static function find()
     {
-        return parent::find()->andWhere('deleted_at is NULL');
+        return parent::find()->andWhere(parent::getTableSchema()->name . '.deleted_at is NULL');
     }
 
     /**
